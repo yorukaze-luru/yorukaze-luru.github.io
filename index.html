@@ -58,6 +58,10 @@ header{position:sticky;top:0;z-index:10;backdrop-filter:blur(10px);background:rg
 .card ul{margin:0 0 14px 18px;padding:0;color:var(--muted);font-size:14px}
 .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}
 .tag{font-size:12px;padding:3px 8px;border-radius:999px;background:var(--chip);color:#c7d2fe;border:1px solid var(--line)}
+.tag-muse{background:linear-gradient(90deg,#6366f1,#a855f7,#ec4899);color:#fff;border:none;font-weight:800}
+.muse-badge{display:inline-flex;align-items:center;gap:6px;margin-top:12px;padding:5px 11px;border-radius:999px;background:linear-gradient(90deg,#6366f1,#a855f7,#ec4899);color:#fff;font-size:12px;font-weight:800;letter-spacing:.04em;box-shadow:0 4px 14px rgba(168,85,247,.35)}
+.card-muse{border-color:#7c3aed}
+.filter-muse.active{background:linear-gradient(90deg,#6366f1,#a855f7,#ec4899)}
 .actions{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
 .actions a{flex:1;text-align:center;padding:10px;border-radius:10px;text-decoration:none;font-weight:700;font-size:14px}
 .a-main{background:#fff;color:#0f172a}
@@ -100,13 +104,15 @@ footer a{color:var(--mint);text-decoration:none}
     <button class="filter" data-filter="android">Android アプリ</button>
     <button class="filter" data-filter="game">ゲームツール / パッチ</button>
     <button class="filter" data-filter="web">Web ツール</button>
+    <button class="filter filter-muse" data-filter="muse">✨ みゅーちゃん制作</button>
   </div>
 
   <div class="grid" id="grid">
 
     <!-- Aprica -->
-    <article class="card" data-cat="android">
+    <article class="card card-muse" data-cat="android" data-muse="1">
       <div class="card-top"><div class="icon">🍑</div><span class="version" data-latest-version="yorukaze-luru/aprica" data-version-suffix=" · 最新">v1.7.1 · 最新</span></div>
+      <div><span class="muse-badge">✨ みゅーちゃん制作</span></div>
       <h2><a href="https://github.com/yorukaze-luru/aprica" target="_blank" rel="noopener">アプリカ</a></h2>
       <div class="en">APRICA · ANDROID · APACHE-2.0</div>
       <p class="desc">ウェブサイトを、本物の Android アプリ（APK）に変換するジェネレーター。「アプリがないサイト」を、アプリ一覧に並ぶ独立アプリとして生成します。</p>
@@ -115,13 +121,14 @@ footer a{color:var(--mint);text-decoration:none}
         <li>権限は生成時に選択（マイク / カメラ / 位置情報 / 通知、既定OFF）</li>
         <li>ログイン・ファイルアップロードにも対応</li>
       </ul>
-      <div class="tags"><span class="tag">Android</span><span class="tag">WebView</span><span class="tag">Kotlin</span><span class="tag">APK生成</span></div>
+      <div class="tags"><span class="tag tag-muse">✨ みゅーちゃん制作</span><span class="tag">Android</span><span class="tag">WebView</span><span class="tag">Kotlin</span><span class="tag">APK生成</span></div>
       <div class="actions"><a class="a-main" href="https://github.com/yorukaze-luru/aprica" target="_blank" rel="noopener">GitHub</a><a class="a-sub" data-latest-link="yorukaze-luru/aprica" href="https://github.com/yorukaze-luru/aprica/releases/tag/v1.7.1" target="_blank" rel="noopener">ダウンロード</a></div>
     </article>
 
     <!-- Paprica -->
-    <article class="card" data-cat="android">
+    <article class="card card-muse" data-cat="android" data-muse="1">
       <div class="card-top"><div class="icon">🔔</div><span class="version" data-latest-version="yorukaze-luru/paprica">v1.1.0</span></div>
+      <div><span class="muse-badge">✨ みゅーちゃん制作</span></div>
       <h2><a href="https://github.com/yorukaze-luru/paprica" target="_blank" rel="noopener">Pアプリカ</a></h2>
       <div class="en">PAPRICA · ANDROID · APACHE-2.0</div>
       <p class="desc">アプリカのプッシュ対応版。GeckoView エンジンで Web プッシュを受け取れる生成アプリが作れます。通常版と同時インストールも可能。</p>
@@ -130,7 +137,7 @@ footer a{color:var(--mint);text-decoration:none}
         <li>配信方式は生成時に選択：Pアプリカ経由 / アプリ内蔵</li>
         <li>生成数上限を設定で変更可能（既定10件、1〜100件）</li>
       </ul>
-      <div class="tags"><span class="tag">Android</span><span class="tag">GeckoView</span><span class="tag">Web Push</span><span class="tag">UnifiedPush</span></div>
+      <div class="tags"><span class="tag tag-muse">✨ みゅーちゃん制作</span><span class="tag">Android</span><span class="tag">GeckoView</span><span class="tag">Web Push</span><span class="tag">UnifiedPush</span></div>
       <div class="actions"><a class="a-main" href="https://github.com/yorukaze-luru/paprica" target="_blank" rel="noopener">GitHub</a><a class="a-sub" data-latest-link="yorukaze-luru/paprica" href="https://github.com/yorukaze-luru/paprica/releases/tag/v1.1.0" target="_blank" rel="noopener">ダウンロード</a></div>
     </article>
 
@@ -213,7 +220,7 @@ document.querySelectorAll('.filter').forEach(btn=>{
     const f=btn.dataset.filter;
     document.querySelectorAll('.card').forEach(card=>{
       const cat=card.dataset.cat;
-      const show = f==='all' || cat===f || cat==='all';
+      const show = f==='muse' ? card.dataset.muse==='1' : (f==='all' || cat===f || cat==='all');
       card.classList.toggle('hidden', !show);
     });
     document.getElementById('works').scrollIntoView({behavior:'smooth',block:'start'});
