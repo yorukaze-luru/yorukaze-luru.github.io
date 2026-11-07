@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>夜風 るる | 制作物 - yorukaze-luru.github.io</title>
+<meta name="description" content="夜風 るる（yorukaze-luru）の制作物まとめ。アプリカ、Pアプリカ、AmongUsCapture v2、One-armed robber 日本語化パッチ、YTV2 など GitHub で公開中のプロジェクトを紹介します。">
+<meta property="og:title" content="夜風 るる | 制作物">
+<meta property="og:description" content="GitHubで公開中のアプリ・ツール・パッチ 5作品を紹介">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yorukaze-luru.github.io/">
+<style>
+:root{
+  --bg:#0a0f1e; --bg2:#0f172a; --card:#111c33; --card2:#16233f;
+  --text:#e6edf7; --muted:#9fb0c9; --line:#24314f;
+  --mint:#5eead4; --teal:#14b8a6; --mint2:#6ee7b7; --accent:#38bdf8;
+  --chip:#1e2b4a;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;background:radial-gradient(1000px 500px at 80% -10%,rgba(20,184,166,.22),transparent 60%),radial-gradient(800px 400px at 10% 0%,rgba(56,189,248,.14),transparent 55%),var(--bg);color:var(--text);line-height:1.7}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:0;z-index:10;backdrop-filter:blur(10px);background:rgba(10,15,30,.82);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+.logo{font-weight:800;letter-spacing:.02em;text-decoration:none}
+.logo span{color:var(--mint)}
+.navlinks{display:flex;gap:18px;font-size:14px}
+.navlinks a{color:var(--muted);text-decoration:none}
+.navlinks a:hover{color:var(--text)}
+.hero{padding:64px 0 36px;text-align:left}
+.badge{display:inline-block;padding:4px 10px;border:1px solid var(--line);background:var(--chip);border-radius:999px;font-size:12px;color:var(--mint);letter-spacing:.06em}
+.hero h1{font-size:44px;line-height:1.15;margin:16px 0 10px}
+.hero h1 .grad{background:linear-gradient(90deg,var(--mint),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:var(--muted);max-width:720px;margin:0 0 22px;font-size:17px}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:12px;text-decoration:none;font-weight:700;font-size:14px;border:1px solid var(--line)}
+.btn-primary{background:linear-gradient(90deg,var(--teal),#0ea5a4);color:#fff;border:none}
+.btn-ghost{background:var(--card);color:var(--text)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:28px 0 8px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px}
+.stat b{font-size:24px;display:block}
+.stat span{color:var(--muted);font-size:13px}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:28px 0 18px}
+.filter{padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--muted);cursor:pointer;font-size:14px}
+.filter.active{background:var(--teal);color:#fff;border-color:transparent;font-weight:700}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;padding-bottom:12px}
+.card{background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--line);border-radius:20px;padding:22px;display:flex;flex-direction:column}
+.card:hover{border-color:#35507f}
+.card-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.icon{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;font-size:24px;background:#0b2a2a;border:1px solid #134e4a}
+.version{font-size:12px;color:#0f172a;background:var(--mint);padding:3px 8px;border-radius:999px;font-weight:800;white-space:nowrap}
+.card h2{margin:14px 0 4px;font-size:21px}
+.card h2 a{text-decoration:none}
+.card h2 a:hover{text-decoration:underline}
+.en{color:var(--muted);font-size:13px;letter-spacing:.04em}
+.desc{color:#cbd5e1;margin:10px 0 12px;font-size:15px}
+.card ul{margin:0 0 14px 18px;padding:0;color:var(--muted);font-size:14px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}
+.tag{font-size:12px;padding:3px 8px;border-radius:999px;background:var(--chip);color:#c7d2fe;border:1px solid var(--line)}
+.actions{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+.actions a{flex:1;text-align:center;padding:10px;border-radius:10px;text-decoration:none;font-weight:700;font-size:14px}
+.a-main{background:#fff;color:#0f172a}
+.a-sub{background:transparent;color:var(--text);border:1px solid var(--line)}
+section.about{padding:36px 0}
+.about-box{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px}
+.about-box h2{margin-top:0}
+.about-box p{color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:28px 0 40px;color:var(--muted);font-size:14px}
+footer a{color:var(--mint);text-decoration:none}
+.hidden{display:none!important}
+@media(max-width:760px){.grid{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.hero h1{font-size:34px}.navlinks{display:none}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+  <a class="logo" href="#">🌙 夜風 <span>るる</span> / Works</a>
+  <nav class="navlinks"><a href="#works">制作物</a><a href="#about">About</a><a href="https://github.com/yorukaze-luru" target="_blank" rel="noopener">GitHub ↗</a></nav>
+</div></header>
+
+<main class="wrap">
+  <div class="hero">
+    <span class="badge">YORUKAZE-LURU · GITHUB PAGES</span>
+    <h1>作ったものを、<br><span class="grad">使える形で届ける。</span></h1>
+    <p>夜風 るるが GitHub で公開しているアプリ・ツール・パッチのまとめページです。「あったらいいのに」を、インストールしてすぐ使える形にしています。</p>
+    <div class="cta">
+      <a class="btn btn-primary" href="#works">制作物を見る ↓</a>
+      <a class="btn btn-ghost" href="https://github.com/yorukaze-luru" target="_blank" rel="noopener">GitHub プロフィール ↗</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>5</b><span>公開プロジェクト</span></div>
+      <div class="stat"><b>Android / Windows / Web</b><span>対応プラットフォーム</span></div>
+      <div class="stat"><b>MIT / Apache-2.0</b><span>オープンソース</span></div>
+      <div class="stat"><b>47+</b><span>GitHub Releases 合計</span></div>
+    </div>
+  </div>
+
+  <div class="filters" id="works">
+    <button class="filter active" data-filter="all">すべて</button>
+    <button class="filter" data-filter="android">Android アプリ</button>
+    <button class="filter" data-filter="game">ゲームツール / パッチ</button>
+    <button class="filter" data-filter="web">Web ツール</button>
+  </div>
+
+  <div class="grid" id="grid">
+
+    <!-- Aprica -->
+    <article class="card" data-cat="android">
+      <div class="card-top"><div class="icon">🍑</div><span class="version">v1.7.1 · 最新</span></div>
+      <h2><a href="https://github.com/yorukaze-luru/aprica" target="_blank" rel="noopener">アプリカ</a></h2>
+      <div class="en">APRICA · ANDROID · APACHE-2.0</div>
+      <p class="desc">ウェブサイトを、本物の Android アプリ（APK）に変換するジェネレーター。「アプリがないサイト」を、アプリ一覧に並ぶ独立アプリとして生成します。</p>
+      <ul>
+        <li>生成は端末内で完結（サーバーにURLを送らない）</li>
+        <li>権限は生成時に選択（マイク / カメラ / 位置情報 / 通知、既定OFF）</li>
+        <li>ログイン・ファイルアップロードにも対応</li>
+      </ul>
+      <div class="tags"><span class="tag">Android</span><span class="tag">WebView</span><span class="tag">Kotlin</span><span class="tag">APK生成</span></div>
+      <div class="actions"><a class="a-main" href="https://github.com/yorukaze-luru/aprica" target="_blank" rel="noopener">GitHub</a><a class="a-sub" href="https://github.com/yorukaze-luru/aprica/releases" target="_blank" rel="noopener">ダウンロード</a></div>
+    </article>
+
+    <!-- Paprica -->
+    <article class="card" data-cat="android">
+      <div class="card-top"><div class="icon">🔔</div><span class="version">v1.0.0</span></div>
+      <h2><a href="https://github.com/yorukaze-luru/paprica" target="_blank" rel="noopener">Pアプリカ</a></h2>
+      <div class="en">PAPRICA · ANDROID · APACHE-2.0</div>
+      <p class="desc">アプリカのプッシュ対応版。GeckoView エンジンで Web プッシュを受け取れる生成アプリが作れます。通常版と同時インストールも可能。</p>
+      <ul>
+        <li>UnifiedPush 配信を内蔵（ntfy等の別アプリ不要）</li>
+        <li>配信方式は生成時に選択：Pアプリカ経由 / アプリ内蔵</li>
+        <li>生成数上限を設定で変更可能（既定10件、1〜100件）</li>
+      </ul>
+      <div class="tags"><span class="tag">Android</span><span class="tag">GeckoView</span><span class="tag">Web Push</span><span class="tag">UnifiedPush</span></div>
+      <div class="actions"><a class="a-main" href="https://github.com/yorukaze-luru/paprica" target="_blank" rel="noopener">GitHub</a><a class="a-sub" href="https://github.com/yorukaze-luru/paprica/releases" target="_blank" rel="noopener">ダウンロード</a></div>
+    </article>
+
+    <!-- AmongUsCapture v2 -->
+    <article class="card" data-cat="game">
+      <div class="card-top"><div class="icon">🚀</div><span class="version">Releases 24件</span></div>
+      <h2><a href="https://github.com/yorukaze-luru/amongus-capture-v2" target="_blank" rel="noopener">AmongUsCapture v2</a></h2>
+      <div class="en">AMONG US · DISCORD · WINDOWS · MIT</div>
+      <p class="desc">Among Us のゲーム状態を読み取り、Discord ボイスチャンネルの自動ミュート / スピーカーミュートを完全自動化するデスクトップアプリ。</p>
+      <ul>
+        <li>セルフホスト Discord Bot 内蔵（外部サーバー不要、Token入力だけ）</li>
+        <li>超軽量：メモリ約8MB / CPU 0.1%、起動0.05秒以下</li>
+        <li>観戦者の除外、仮死状態・幽霊通話などネタバレ防止も搭載</li>
+      </ul>
+      <div class="tags"><span class="tag">Windows</span><span class="tag">Go</span><span class="tag">Discord Bot</span><span class="tag">Among Us</span></div>
+      <div class="actions"><a class="a-main" href="https://github.com/yorukaze-luru/amongus-capture-v2" target="_blank" rel="noopener">GitHub</a><a class="a-sub" href="https://github.com/yorukaze-luru/amongus-capture-v2/releases" target="_blank" rel="noopener">ダウンロード</a></div>
+    </article>
+
+    <!-- One-armed robber -->
+    <article class="card" data-cat="game">
+      <div class="card-top"><div class="icon">🎮</div><span class="version">v2.0.2</span></div>
+      <h2><a href="https://github.com/yorukaze-luru/One-armed-robber-japanese" target="_blank" rel="noopener">One-armed robber 日本語化パッチ</a></h2>
+      <div class="en">STEAM · UNREAL ENGINE 4.27 · MIT · 非公式</div>
+      <p class="desc">Steam 無料FPS『One-armed robber』の非公式日本語化パッチ。フォルダに入れるだけで、日本語で遊べます。</p>
+      <ul>
+        <li>全12ステージ・新マップ「データセンター」まで完全対応</li>
+        <li>UI / アイテム / スキル / スキン / HUD など網羅的に翻訳</li>
+        <li>Pak 1ファイルを消せばいつでも英語に戻せる</li>
+      </ul>
+      <div class="tags"><span class="tag">Steam</span><span class="tag">日本語化</span><span class="tag">FPS</span><span class="tag">Mod / Patch</span></div>
+      <div class="actions"><a class="a-main" href="https://github.com/yorukaze-luru/One-armed-robber-japanese" target="_blank" rel="noopener">GitHub</a><a class="a-sub" href="https://github.com/yorukaze-luru/One-armed-robber-japanese/releases" target="_blank" rel="noopener">ダウンロード</a></div>
+    </article>
+
+    <!-- YTV2 -->
+    <article class="card" data-cat="web">
+      <div class="card-top"><div class="icon">📋</div><span class="version">v1.2.0</span></div>
+      <h2><a href="https://github.com/yorukaze-luru/YTV2" target="_blank" rel="noopener">YTV2 - 一覧生成ツール</a></h2>
+      <div class="en">WEB TOOL · HTML / JS · MIT</div>
+      <p class="desc">名前・YouTube / X のURL・タグを登録して、条件に合わせた一覧を生成する Web アプリケーション。配信者リストなどの作成に。</p>
+      <ul>
+        <li>タグ・お気に入り・並び順で絞り込み、ワンクリックでコピー</li>
+        <li>CSVでダウンロード / アップロードして共有可能</li>
+        <li>完全ローカル動作（localStorage保存、ネット不要）</li>
+      </ul>
+      <div class="tags"><span class="tag">Web</span><span class="tag">HTML / CSS / JS</span><span class="tag">CSV</span><span class="tag">オフライン対応</span></div>
+      <div class="actions"><a class="a-main" href="https://github.com/yorukaze-luru/YTV2" target="_blank" rel="noopener">GitHub</a><a class="a-sub" href="https://github.com/yorukaze-luru/YTV2/releases" target="_blank" rel="noopener">Releases</a></div>
+    </article>
+
+    <!-- GitHub profile card -->
+    <article class="card" data-cat="all">
+      <div class="card-top"><div class="icon">🐙</div><span class="version">GITHUB</span></div>
+      <h2><a href="https://github.com/yorukaze-luru" target="_blank" rel="noopener">すべてのリポジトリ</a></h2>
+      <div class="en">GITHUB.COM/YORUKAZE-LURU</div>
+      <p class="desc">最新版のダウンロードは各リポジトリの Releases から。不具合報告や要望も GitHub の Issues で受け付けています。</p>
+      <ul><li>アプリカ / Pアプリカは Google Play ではなく GitHub Releases で配布</li><li>ライセンスは各リポジトリの LICENSE を確認してください</li></ul>
+      <div class="tags"><span class="tag">Open Source</span><span class="tag">Releases</span><span class="tag">Issues</span></div>
+      <div class="actions"><a class="a-main" href="https://github.com/yorukaze-luru?tab=repositories" target="_blank" rel="noopener">リポジトリ一覧 ↗</a></div>
+    </article>
+
+  </div>
+
+  <section class="about" id="about">
+    <div class="about-box">
+      <h2>About — 夜風 るる</h2>
+      <p>使いやすいのにアプリがない、自動化できたら楽なのに、日本語で遊びたいのに——そんな小さな不便を解消するツールを作っています。開発には AI アシスタント「Muse（みゅーちゃん）」も活用しています。</p>
+      <p>連絡先・最新情報は <a href="https://github.com/yorukaze-luru" target="_blank" rel="noopener" style="color:var(--mint)">GitHub</a> からどうぞ。</p>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">
+  © 2026 夜風 るる (yorukaze-luru) · <a href="https://github.com/yorukaze-luru">github.com/yorukaze-luru</a> · このページは GitHub Pages で公開しています。各プロジェクトのライセンスはそれぞれのリポジトリをご確認ください。
+</div></footer>
+
+<script>
+document.querySelectorAll('.filter').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.filter').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const f=btn.dataset.filter;
+    document.querySelectorAll('.card').forEach(card=>{
+      const cat=card.dataset.cat;
+      const show = f==='all' || cat===f || cat==='all';
+      card.classList.toggle('hidden', !show);
+    });
+    document.getElementById('works').scrollIntoView({behavior:'smooth',block:'start'});
+  });
+});
+</script>
+</body>
+</html>
